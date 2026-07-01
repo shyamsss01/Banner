@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ultimate Premium Banner</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: #e8ecf1;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            padding: 20px;
+        }
+
+        .banner {
+            width: 1100px;
+            max-width: 100%;
+            background: #ffffff;
+            border-radius: 50px;
+            padding: 45px 50px;
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.12), 0 10px 30px rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(0, 0, 0, 0.04);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Decorative top bar */
+        .banner::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background: linear-gradient(90deg, #2563eb, #7c3aed, #ec4899, #f59e0b, #2563eb);
+            background-size: 300% 100%;
+            animation: gradientMove 4s ease infinite;
+        }
+
+        @keyframes gradientMove {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* TOP ROW - Brand + Stats */
+        .top-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            padding-bottom: 18px;
+            border-bottom: 2px solid #f0f2f5;
+            margin-bottom: 22px;
+        }
+
+        .brand-logo {
+            font-size: 28px;
+            font-weight: 900;
+            color: #0a0a0a;
+            letter-spacing: -0.5px;
+        }
+
+        .brand-logo span {
+            color: #2563eb;
+            background: #dbeafe;
+            padding: 4px 16px;
+            border-radius: 40px;
+            font-size: 22px;
+        }
+
+        .stats-badge {
+            display: flex;
+            gap: 25px;
+            flex-wrap: wrap;
+        }
+
+        .stat-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: #f8fafc;
+            padding: 8px 20px;
+            border-radius: 40px;
+            font-weight: 600;
+            font-size: 15px;
+            color: #1e293b;
+            border: 1px solid #e2e8f0;
+        }
+
+        .stat-item .num {
+            color: #2563eb;
+            font-size: 18px;
+        }
+
+        /* MAIN HEADING */
+        .main-heading {
+            font-size: 58px;
+            font-weight: 900;
+            line-height: 1.05;
+            color: #0a0a0a;
+            margin-bottom: 6px;
+            letter-spacing: -1px;
+        }
+
+        .main-heading .highlight {
+            background: linear-gradient(135deg, #2563eb, #7c3aed);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .sub-heading {
+            font-size: 22px;
+            color: #475569;
+            font-weight: 400;
+            margin-bottom: 18px;
+            letter-spacing: 0.3px;
+        }
+
+        .sub-heading strong {
+            color: #2563eb;
+            font-weight: 700;
+        }
+
+        /* TECH STACK - All Languages */
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px 14px;
+            background: #f8fafc;
+            padding: 16px 22px;
+            border-radius: 30px;
+            margin: 12px 0 18px 0;
+            border: 1px solid #e2e8f0;
+        }
+
+        .tech-tag {
+            background: #ffffff;
+            padding: 5px 18px;
+            border-radius: 30px;
+            font-size: 14px;
+            font-weight: 600;
+            color: #1e293b;
+            border: 1px solid #d1d5db;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+        }
+
+        .tech-tag .icon {
+            margin-right: 5px;
+        }
+        .tech-tag.blue { background: #dbeafe; border-color: #93c5fd; color: #1e40af; }
+        .tech-tag.green { background: #d1fae5; border-color: #6ee7b7; color: #065f46; }
+        .tech-tag.purple { background: #ede9fe; border-color: #c4b5fd; color: #5b21b6; }
+        .tech-tag.orange { background: #fef3c7; border-color: #fcd34d; color: #92400e; }
+        .tech-tag.pink { background: #fce7f3; border-color: #f9a8d4; color: #9d174d; }
+        .tech-tag.cyan { background: #cffafe; border-color: #67e8f9; color: #0e7490; }
+
+        /* GRID - Services / Features (FULLY PACKED) */
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 14px;
+            margin: 18px 0 20px 0;
+        }
+
+        .feature-card {
+            background: #fafbfc;
+            padding: 16px 14px;
+            border-radius: 18px;
+            border: 1px solid #edf2f7;
+            transition: 0.2s;
+            text-align: center;
+        }
+
+        .feature-card:hover {
+            border-color: #2563eb;
+            background: #f0f7ff;
+        }
+
+        .feature-card .icon {
+            font-size: 30px;
+            display: block;
+            margin-bottom: 6px;
+        }
+
+        .feature-card .title {
+            font-weight: 700;
+            font-size: 15px;
+            color: #0a0a0a;
+        }
+
+        .feature-card .desc {
+            font-size: 12px;
+            color: #64748b;
+            margin-top: 3px;
+            line-height: 1.3;
+        }
+
+        /* MIDDLE SECTION - OFFER + CTA + CONTACT */
+        .middle-section {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 25px;
+            background: linear-gradient(135deg, #f0f7ff, #faf5ff);
+            padding: 22px 28px;
+            border-radius: 30px;
+            margin: 18px 0 20px 0;
+            border: 1px solid #e0e7ff;
+            align-items: center;
+        }
+
+        .offer-block {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .offer-block .big-offer {
+            font-size: 38px;
+            font-weight: 900;
+            color: #dc2626;
+            letter-spacing: -0.5px;
+        }
+
+        .offer-block .big-offer span {
+            background: #fef2f2;
+            padding: 2px 16px;
+            border-radius: 30px;
+            font-size: 20px;
+            color: #b91c1c;
+        }
+
+        .offer-block .offer-desc {
+            font-size: 17px;
+            color: #1e293b;
+            font-weight: 500;
+        }
+
+        .offer-block .offer-desc small {
+            font-weight: 400;
+            color: #64748b;
+        }
+
+        .cta-group {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            align-items: flex-end;
+        }
+
+        .cta-main {
+            background: #2563eb;
+            color: #fff;
+            padding: 16px 45px;
+            border-radius: 60px;
+            font-weight: 800;
+            font-size: 20px;
+            text-decoration: none;
+            display: inline-block;
+            transition: 0.3s;
+            border: 2px solid #2563eb;
+            box-shadow: 0 8px 25px rgba(37, 99, 235, 0.25);
+            text-align: center;
+            width: 100%;
+            max-width: 320px;
+        }
+
+        .cta-main:hover {
+            background: #1d4ed8;
+            transform: scale(1.02);
+            box-shadow: 0 12px 35px rgba(37, 99, 235, 0.35);
+        }
+
+        .cta-secondary {
+            color: #2563eb;
+            font-weight: 600;
+            font-size: 16px;
+            text-decoration: none;
+            border-bottom: 2px solid #2563eb;
+            padding-bottom: 2px;
+        }
+
+        .cta-secondary:hover { color: #1d4ed8; }
+
+        /* CONTACT & WEBSITE ROW */
+        .contact-row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 15px 30px;
+            background: #f8fafc;
+            padding: 16px 24px;
+            border-radius: 30px;
+            margin: 16px 0 18px 0;
+            border: 1px solid #e2e8f0;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 16px;
+            font-weight: 500;
+            color: #1e293b;
+        }
+
+        .contact-item a {
+            color: #2563eb;
+            text-decoration: none;
+            font-weight: 700;
+        }
+
+        .contact-item a:hover { text-decoration: underline; }
+
+        .website-url {
+            font-weight: 600;
+            font-size: 16px;
+        }
+
+        .website-url a {
+            color: #2563eb;
+            text-decoration: none;
+            border-bottom: 2px solid #2563eb;
+            padding-bottom: 2px;
+        }
+
+        /* BOTTOM - Extra Info (FULLY PACKED) */
+        .bottom-strip {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 12px;
+            background: #f1f5f9;
+            padding: 16px 20px;
+            border-radius: 24px;
+            margin-top: 18px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .bottom-item {
+            text-align: center;
+            font-size: 13px;
+            font-weight: 500;
+            color: #1e293b;
+            line-height: 1.3;
+        }
+
+        .bottom-item .big-num {
+            font-size: 22px;
+            font-weight: 900;
+            color: #2563eb;
+            display: block;
+        }
+
+        .bottom-item .label {
+            font-size: 11px;
+            color: #64748b;
+            font-weight: 400;
+        }
+
+        /* FOOTER LINE */
+        .footer-line {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 18px;
+            padding-top: 14px;
+            border-top: 2px solid #f0f2f5;
+            font-size: 13px;
+            color: #64748b;
+        }
+
+        .footer-line .gst-badge {
+            background: #dbeafe;
+            padding: 4px 18px;
+            border-radius: 30px;
+            color: #1e40af;
+            font-weight: 700;
+            font-size: 13px;
+        }
+
+        .footer-line .trust {
+            color: #2563eb;
+            font-weight: 600;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 992px) {
+            .feature-grid { grid-template-columns: repeat(2, 1fr); }
+            .middle-section { grid-template-columns: 1fr; text-align: center; }
+            .cta-group { align-items: center; }
+            .cta-main { max-width: 100%; }
+            .bottom-strip { grid-template-columns: repeat(3, 1fr); }
+        }
+
+        @media (max-width: 768px) {
+            .banner { padding: 28px 20px; }
+            .main-heading { font-size: 38px; }
+            .sub-heading { font-size: 17px; }
+            .brand-logo { font-size: 20px; }
+            .stats-badge { gap: 10px; }
+            .stat-item { font-size: 12px; padding: 4px 12px; }
+            .feature-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
+            .bottom-strip { grid-template-columns: 1fr 1fr; }
+            .contact-row { flex-direction: column; align-items: stretch; text-align: center; }
+            .offer-block .big-offer { font-size: 28px; }
+        }
+
+        @media (max-width: 480px) {
+            .main-heading { font-size: 28px; }
+            .feature-grid { grid-template-columns: 1fr; }
+            .bottom-strip { grid-template-columns: 1fr; }
+            .tech-stack { gap: 6px; }
+            .tech-tag { font-size: 12px; padding: 3px 12px; }
+            .middle-section { padding: 16px; }
+            .cta-main { font-size: 16px; padding: 14px 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="banner">
+
+        <!-- TOP ROW -->
+        <div class="top-row">
+            <div class="brand-logo">
+                🚀 <span>AI</span> Freelance Pro
+            </div>
+            <div class="stats-badge">
+                <div class="stat-item">⭐ <span class="num">100%</span> Success Rate</div>
+                <div class="stat-item">🌍 <span class="num">4+</span> Countries</div>
+                <div class="stat-item">🏆 <span class="num">16+</span> Projects</div>
+            </div>
+        </div>
+
+        <!-- MAIN HEADING -->
+        <div class="main-heading">
+            We Build <span class="highlight">Websites</span> & <span class="highlight">AI Solutions</span>
+        </div>
+        <div class="sub-heading">
+            <strong>Full Stack</strong> · <strong>Frontend</strong> · <strong>Backend</strong> · <strong>Database</strong> · <strong>AI/ML</strong> · <strong>Real-Time Apps</strong>
+        </div>
+
+        <!-- TECH STACK - All Languages -->
+        <div class="tech-stack">
+            <span class="tech-tag blue">🐍 Python</span>
+            <span class="tech-tag green">📜 JavaScript/TS</span>
+            <span class="tech-tag purple">☕ Java</span>
+            <span class="tech-tag orange">🐘 PHP</span>
+            <span class="tech-tag pink">💎 Ruby</span>
+            <span class="tech-tag cyan">⚡ Go/Rust</span>
+            <span class="tech-tag blue">🔷 C#/.NET</span>
+            <span class="tech-tag green">⚛️ React/Vue</span>
+            <span class="tech-tag purple">🗄️ SQL/NoSQL</span>
+            <span class="tech-tag orange">☁️ AWS/Azure</span>
+            <span class="tech-tag pink">🤖 TensorFlow</span>
+            <span class="tech-tag cyan">📱 Flutter/React Native</span>
+        </div>
+
+        <!-- FEATURE GRID - 8 Cards (FULLY PACKED) -->
+        <div class="feature-grid">
+            <div class="feature-card">
+                <span class="icon">🤖</span>
+                <div class="title">AI/ML Projects</div>
+                <div class="desc">Chatbots, NLP, Computer Vision, Predictive Models</div>
+            </div>
+            <div class="feature-card">
+                <span class="icon">🌐</span>
+                <div class="title">Web Development</div>
+                <div class="desc">Custom Websites, E-commerce, Dashboards, Portfolios</div>
+            </div>
+            <div class="feature-card">
+                <span class="icon">📱</span>
+                <div class="title">Mobile Apps</div>
+                <div class="desc">iOS & Android, Cross-Platform with Flutter/RN</div>
+            </div>
+            <div class="feature-card">
+                <span class="icon">☁️</span>
+                <div class="title">Cloud Hosting</div>
+                <div class="desc">Free & Paid Hosting, AWS, Azure, VPS, cPanel</div>
+            </div>
+            <div class="feature-card">
+                <span class="icon">⏱️</span>
+                <div class="title">On-Time Delivery</div>
+                <div class="desc">Strict deadlines, Agile methodology, Daily updates</div>
+            </div>
+            <div class="feature-card">
+                <span class="icon">💰</span>
+                <div class="title">30% Cheaper</div>
+                <div class="desc">Market price se 30% kam, Premium quality</div>
+            </div>
+            <div class="feature-card">
+                <span class="icon">🧾</span>
+                <div class="title">GST Invoice</div>
+                <div class="desc">Official billing, Tax compliance, Professional</div>
+            </div>
+            <div class="feature-card">
+                <span class="icon">🌍</span>
+                <div class="title">International Clients</div>
+                <div class="desc">UAE, South africa, Afganisthan & more</div>
+            </div>
+        </div>
+
+        <!-- MIDDLE SECTION - OFFER + CTA -->
+        <div class="middle-section">
+            <div class="offer-block">
+                <div class="big-offer">
+                    🔥 30% OFF <span>FIRST ORDER</span>
+                </div>
+                <div class="offer-desc">
+                    🏷️ <strong>₹</strong> Best price guarantee · <small>Free consultation · No hidden charges</small>
+                </div>
+                <div style="font-size:14px; color:#475569; margin-top:4px;">
+                    ✅ Transparent pricing · ✅ Unlimited revisions · ✅ 100% satisfaction
+                </div>
+            </div>
+            <div class="cta-group">
+                <a href="https://web-as.ghanshamchaudhari2004.workers.dev/" target="_blank" class="cta-main">
+                    🌐 Visit Website →
+                </a>
+                
+            </div>
+        </div>
+
+        <!-- CONTACT ROW -->
+        <div class="contact-row">
+            <div class="contact-item">
+                📞 <a href="tel:7709307593">+91 7709307593</a>
+            </div>
+            <div class="contact-item">
+                ✉️ <a href="mailto:info@aifreelance.in">ghanshamchaudhari2004@gmail.com</a>
+            </div>
+            <div class="contact-item">
+                💬 WhatsApp / Telegram / Signal
+            </div>
+            
+        </div>
+
+        <!-- BOTTOM STRIP - 5 Columns (FULLY PACKED) -->
+        <div class="bottom-strip">
+            <div class="bottom-item">
+                <span class="big-num">16+</span>
+                Projects Delivered
+                <span class="label">Across 4+ countries</span>
+            </div>
+            <div class="bottom-item">
+                <span class="big-num">100%</span>
+                Client Satisfaction
+                <span class="label">4.9/5 average rating</span>
+            </div>
+            <div class="bottom-item">
+                <span class="big-num">24/7</span>
+                Support Available
+                <span class="label">Dedicated project manager</span>
+            </div>
+            <div class="bottom-item">
+                <span class="big-num">15+</span>
+                Tech Stacks
+                <span class="label">Full-stack & AI expertise</span>
+            </div>
+            <div class="bottom-item">
+                <span class="big-num">100%</span>
+                Data Security
+                <span class="label">NDA & IP protection</span>
+            </div>
+        </div>
+
+        <!-- FOOTER LINE -->
+        <div class="footer-line">
+            <span>
+                ⚡ <strong>All types of AI-based projects</strong> · Web · Mobile · Cloud · Automation · Analytics
+            </span>
+            <span class="gst-badge">
+                ✅ GST Bill Available
+            </span>
+            <span class="trust">
+                ⏱️delivery in under date · 🏆 Trusted by 50+ clients
+            </span>
+        </div>
+
+    </div>
+
+</body>
+</html>
